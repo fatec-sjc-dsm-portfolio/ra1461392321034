@@ -1,8 +1,16 @@
-import React from 'react';
+import { useState } from "react";
 
 const Portfolio = () => {
+  const [activeTab, setActiveTab] = useState("academicos");
+
   return (
     <div className="bg-slate-950 text-slate-300 font-sans min-h-screen selection:bg-teal-500 selection:text-white">
+
+      {/* Bootstrap Icons CDN */}
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      />
       
       {/* NAVEGAÇÃO */}
       <nav className="fixed top-0 w-full bg-slate-950/80 backdrop-blur-md border-b border-slate-800 z-50">
@@ -10,10 +18,17 @@ const Portfolio = () => {
           <div className="text-2xl font-bold text-teal-400 tracking-tighter">
             {"<Erika />"}
           </div>
-          <ul className="flex space-x-8 text-sm font-medium">
+          <ul className="flex items-center space-x-8 text-sm font-medium">
             <li><a href="#sobre" className="hover:text-teal-400 transition-colors">Sobre Mim</a></li>
             <li><a href="#projetos" className="hover:text-teal-400 transition-colors">Projetos</a></li>
-            <li><a href="#contato" className="hover:text-teal-400 transition-colors">Contato</a></li>
+            <li className="flex items-center space-x-4">
+              <a href="https://github.com/ErikaDias2" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-teal-400 transition-colors text-xl">
+                <i className="bi bi-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/erika-dias-608359266/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-teal-400 transition-colors text-xl">
+                <i className="bi bi-linkedin"></i>
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -82,8 +97,36 @@ const Portfolio = () => {
       <section id="projetos" className="py-24 px-6 bg-slate-950">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-white text-center mb-2">Projetos</h2>
-          <p className="text-slate-400 text-center mb-16">Abaixo você encontrará meus projetos desenvolvidos.</p>
-          
+          <p className="text-slate-400 text-center mb-10">Abaixo você encontrará meus projetos desenvolvidos.</p>
+
+          {/* ABAS */}
+          <div className="flex justify-center mb-14">
+            <div className="inline-flex bg-slate-900 border border-slate-800 rounded-full p-1">
+              <button
+                onClick={() => setActiveTab("academicos")}
+                className={`px-6 py-2 rounded-full text-sm font-bold transition-colors ${
+                  activeTab === "academicos"
+                    ? "bg-teal-500 text-slate-950"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                Projetos Acadêmicos
+              </button>
+              <button
+                onClick={() => setActiveTab("profissionais")}
+                className={`px-6 py-2 rounded-full text-sm font-bold transition-colors ${
+                  activeTab === "profissionais"
+                    ? "bg-teal-500 text-slate-950"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                Projetos Profissionais
+              </button>
+            </div>
+          </div>
+
+          {/* CONTEÚDO: PROJETOS ACADÊMICOS */}
+          {activeTab === "academicos" && (
           <div className="space-y-20">
             {/* Projeto 1 */}
             <div className="flex flex-col md:flex-row bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-xl">
@@ -191,62 +234,79 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+          )}
 
-      {/* 4. CONTATO */}
-      <section id="contato" className="py-24 px-6 bg-slate-900 border-t border-slate-800">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Vamos Conversar?</h2>
-            <p className="text-slate-400">Preencha os dados abaixo e entrarei em contato o mais rápido possível.</p>
+          {/* CONTEÚDO: PROJETOS PROFISSIONAIS */}
+          {activeTab === "profissionais" && (
+          <div className="space-y-20">
+            {/* Experiência 1 - Manutenção SaaS */}
+            <div className="flex flex-col md:flex-row bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-xl">
+              <div className="md:w-5/12">
+                <img 
+                  src="./saas.jpeg" 
+                  alt="Manutenção de sistema SaaS" 
+                  className="h-full w-full object-fill"
+                />
+              </div>
+              <div className="p-10 md:w-7/12 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold text-white mb-3">Manutenção de Sistema SaaS</h3>
+                <p className="text-slate-400 mb-6 leading-relaxed">
+                  Durante meu estágio, atuei na manutenção contínua de um sistema SaaS construído em JavaScript puro e Bootstrap. O trabalho envolveu correção de bugs, ajustes de interface e pequenas evoluções de funcionalidades já existentes, sempre buscando manter a estabilidade do sistema em produção.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">JavaScript</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Bootstrap</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Manutenção de Sistemas</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Experiência 2 - Tipagem com Mypy/Ruff */}
+            <div className="flex flex-col md:flex-row-reverse bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-xl">
+              <div className="md:w-5/12">
+                <img 
+                  src="./mypy.png" 
+                  alt="Tipagem e qualidade de código em sistema legado" 
+                  className="h-full w-full object-fill"
+                />
+              </div>
+              <div className="p-10 md:w-7/12 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold text-white mb-3">Tipagem e Qualidade em Sistema Legado</h3>
+                <p className="text-slate-400 mb-6 leading-relaxed">
+                  Trabalhei na melhoria de um sistema legado em Python, introduzindo tipagem estática com <strong>Mypy</strong> e aplicando padronização e boas práticas de código com <strong>Ruff</strong>. O objetivo era reduzir erros silenciosos, facilitar a manutenção e deixar o código mais legível para a equipe.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Python</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Mypy</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Ruff</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Sistema Legado</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Experiência 3 - Testes com Cypress */}
+            <div className="flex flex-col md:flex-row bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-xl">
+              <div className="md:w-5/12">
+                <img 
+                  src="./cypress.png" 
+                  alt="Testes automatizados com Cypress" 
+                  className="h-full w-full object-fill"
+                />
+              </div>
+              <div className="p-10 md:w-7/12 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold text-white mb-3">Testes Automatizados com Cypress</h3>
+                <p className="text-slate-400 mb-6 leading-relaxed">
+                  Implementei testes end-to-end com <strong>Cypress</strong> em outro sistema da empresa, criando cenários para validar fluxos críticos da aplicação e ajudando a equipe a identificar regressões antes que chegassem à produção.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Cypress</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Testes E2E</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">QA</span>
+                </div>
+              </div>
+            </div>
           </div>
-          
-          <form className="space-y-6 bg-slate-950 p-8 md:p-10 rounded-2xl border border-slate-800 shadow-2xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Nome Completo</label>
-                <input 
-                  type="text" 
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors"
-                  placeholder="Seu nome"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Telefone</label>
-                <input 
-                  type="tel" 
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors"
-                  placeholder="(00) 00000-0000"
-                />
-              </div>
-            </div>
-            
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-300">E-mail</label>
-              <input 
-                type="email" 
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors"
-                placeholder="seu@email.com"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-300">Mensagem</label>
-              <textarea 
-                rows="5"
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors resize-none"
-                placeholder="Como posso te ajudar?"
-              ></textarea>
-            </div>
-
-            <button 
-              type="submit" 
-              className="w-full bg-teal-500 text-slate-950 font-bold py-4 rounded-lg hover:bg-teal-400 transition-colors"
-            >
-              Enviar Mensagem
-            </button>
-          </form>
+          )}
         </div>
       </section>
 
