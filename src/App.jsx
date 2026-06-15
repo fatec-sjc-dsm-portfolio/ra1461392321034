@@ -233,6 +233,61 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
+
+            {/* Projeto 5 */}
+            <div className="flex flex-col md:flex-row bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-xl">
+              <div className="md:w-5/12">
+                <img 
+                  src="./almox.png"
+                  alt="Sistema Almox" 
+                  className="h-full w-full object-fill"
+                />
+              </div>
+              <div className="p-10 md:w-7/12 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold text-white mb-3">Sistema Almox</h3>
+                <p className="text-slate-400 mb-6 leading-relaxed">
+                  O projeto trata-se do desenvolvimento de um aplicativo para gestão do almoxarifado militar de múltiplos setores. Atualmente, o processo de controle de materiais é burocrático e suscetível a falhas, dificultando a organização, rastreabilidade e agilidade no atendimento das demandas. Essa dificuldade gera retrabalho, perda de tempo e risco de falta de materiais essenciais. <a href="https://github.com/TeamHiveAPI/API-2025.02" target="_blank" className="text-teal-400 hover:underline">Ver repositório.</a>
+                </p>
+                <div className="mb-6">
+                  <h4 className="text-sm font-bold text-teal-400 uppercase tracking-wider mb-2">Minha Contribuição</h4>
+                  <p className="text-slate-300 text-sm">Atuei no desenvolvimento sendo responsável pela <strong>modelagem do banco de dados</strong>, contribui para o <strong>mapeamento da jornada e do fluxo ideal do cliente</strong>, traduzindo processos complexos em telas lógicas, e colaborei diretamente no <strong>design de UX.</strong></p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Flutter</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Supabase</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">FastAPI</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Python</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Projeto 6 */}
+            <div className="flex flex-col md:flex-row-reverse bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-xl">
+              <div className="md:w-5/12">
+                <img 
+                  src="./sistemaasg.jpeg" 
+                  alt="Sistema ASG" 
+                  className="h-full w-full object-fill"
+                />
+              </div>
+              <div className="p-10 md:w-7/12 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold text-white mb-3">Sistema ASG</h3>
+                <p className="text-slate-400 mb-6 leading-relaxed">
+                  Sistema ASG (Ambiental, Social e Governança) para análise de propriedades rurais no estado de São Paulo, utilizando dados públicos geoespaciais e permitindo consultas inteligentes via mapa e linguagem natural. O objetivo principal é apoiar governo e usuários na tomada de decisão, fiscalização e análise de risco ambiental, com respostas rápidas, visuais e rastreáveis. <a href="https://github.com/Equipe-Interrogacao/documentation" target="_blank" className="text-teal-400 hover:underline">Ver repositório.</a>
+                </p>
+                <div className="mb-6">
+                  <h4 className="text-sm font-bold text-teal-400 uppercase tracking-wider mb-2">Minha Contribuição</h4>
+                  <p className="text-slate-300 text-sm">Foquei no desenvolvimento das <strong>rotas de dados</strong> da aplicação, garantindo que as informações fossem processadas e exibidas corretamente, além de contribuir para a exibição das informações no frontend.</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Python</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Typescript</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">React</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">PostGIS</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">Google Maps</span>
+                </div>
+              </div>
+            </div>
           </div>
           )}
 
